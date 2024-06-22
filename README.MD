@@ -6,5 +6,6 @@
  - socket runtime used to build cross platform apps!
    - [socket](https://github.com/socketsupply/socket)
 
- - uses preact bc i wanted to try it out
+ - uses preact + xterm.js bc i wanted to try it out
     - [preact](https://preactjs.com/)
+    - [xterm](https://xtermjs.org/)
