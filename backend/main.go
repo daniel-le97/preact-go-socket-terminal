@@ -3,8 +3,10 @@ package main
 import (
 	"log"
 	"net/http"
+	// "os"
 	"os/exec"
 	"runtime"
+
 	"github.com/creack/pty"
 	"github.com/gorilla/websocket"
 )
@@ -69,6 +71,7 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	// log.Panicln(os.Environ())
 	http.HandleFunc("/ws", handleWebSocket)
 	log.Println("Server started on :8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
