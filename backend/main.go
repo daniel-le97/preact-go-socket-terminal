@@ -1,9 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
-	// "os"
 	"os/exec"
 	"runtime"
 
@@ -28,6 +28,10 @@ func getCommand() string {
 	default:
 		return "sh" // Fallback to a basic shell
 	}
+}
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, r.URL.Path)
 }
 
 func handleWebSocket(w http.ResponseWriter, r *http.Request) {
@@ -72,6 +76,7 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	// log.Panicln(os.Environ())
+	http.HandleFunc("/", handler)
 	http.HandleFunc("/ws", handleWebSocket)
 	log.Println("Server started on :8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))

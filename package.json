@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build:vite": "vite build",
-    "build:backend": "cd backend && go build -o ../dist/term",
+    "build:backend": "cd backend && go build -ldflags='-s -w' -o ../dist/binaries/terminal",
     "preview": "vite preview",
     "link:socket": "bun link @socketsupply/socket",
     "build": "ssc build -r"
