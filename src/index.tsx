@@ -2,6 +2,7 @@ import { render } from "preact";
 import "./index.css";
 import TerminalComponent from "./term";
 import application from "socket:application";
+// import "./next/kvext";
 
 const App = () => {
   const onClick = async () => {

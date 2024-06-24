@@ -47,7 +47,7 @@ void onexec(
     return;
   }
 
-  if (!databases.contains(id))
+  if (!databases[id])
   {
     auto err = sapi_json_object_create(context);
     sapi_json_object_set(
@@ -242,7 +242,7 @@ void onclose(
     return;
   }
 
-  if (!databases.contains(id))
+  if (!databases[id])
   {
     auto err = sapi_json_object_create(context);
     sapi_json_object_set(
