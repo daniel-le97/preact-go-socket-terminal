@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite'
-import preact from '@preact/preset-vite'
-import path from 'path'
+import { defineConfig } from "vite";
+import preact from "@preact/preset-vite";
+import path from "path";
 
 // import childProcess from 'node:child_process'
 
@@ -15,9 +15,15 @@ export default defineConfig({
     },
   },
 
-  build:{
-    rollupOptions:{
-      external: [/^socket:.*/]
-    }
+  // worker: {
+  //   rollupOptions: {},
+  // },
+
+  build: {
+    target: "esnext",
+    minify: false,
+    rollupOptions: {
+      external: [/^socket:.*/],
+    },
   },
-})
+});

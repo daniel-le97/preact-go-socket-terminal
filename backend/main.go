@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"net"
 	"net/http"
 	"os/exec"
 	"runtime"
@@ -78,6 +79,20 @@ func main() {
 	// log.Panicln(os.Environ())
 	http.HandleFunc("/", handler)
 	http.HandleFunc("/ws", handleWebSocket)
-	log.Println("Server started on :8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	listener, err := net.Listen("tcp", ":0")
+	if err != nil {
+		fmt.Println("Error creating listener:", err)
+		return
+	}
+	defer listener.Close()
+
+	// Get the assigned port
+	port := listener.Addr().(*net.TCPAddr).Port
+	fmt.Printf("Starting server on http://localhost:%d\n", port)
+
+	// Start the HTTP server
+	err = http.Serve(listener, nil)
+	if err != nil {
+		fmt.Println("Error starting server:", err)
+	}
 }

@@ -1,3 +1,7 @@
+extensions
+extensions/sqlite3/
+src/next
+
 # Logs
 logs
 *.log
@@ -14,7 +18,7 @@ dist
 dist-ssr
 *.local
 
-extensions
+
 
 # Editor directories and files
 .vscode/*
