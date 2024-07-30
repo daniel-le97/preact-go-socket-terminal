@@ -7,23 +7,33 @@
     "dev": "vite",
     "build:vite": "vite build",
     "build:backend": "cd backend && go build -ldflags='-s -w' -o ../dist/binaries/terminal",
+    "build:pty": "cd backend-c++ && clang++ pty.cc -o ../dist/binaries/terminal-pty",
     "preview": "vite preview",
     "link:socket": "bun link @socketsupply/socket",
-    "build": "ssc build -r"
+    "build": "ssc build -r",
+    "debug": "SOCKET_RUNTIME_SERVICE_WORKER_DEBUG=1 ssc build -r"
   },
   "dependencies": {
+    "@logto/browser": "^2.2.16",
+    "@logto/capacitor": "^2.0.2",
+    "@logto/react": "^3.0.14",
+    "@preact/signals": "^1.2.3",
+    "@xterm/addon-attach": "^0.11.0",
     "@xterm/addon-fit": "^0.10.0",
     "@xterm/xterm": "^5.5.0",
-    "preact": "^10.19.6"
+    "hono": "^4.4.12",
+    "preact": "^10.22.0",
+    "preact-router": "^4.1.2"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.8.2",
-    "@types/bun": "^1.1.4",
+    "@socketsupply/socket": "link:@socketsupply/socket",
+    "@preact/preset-vite": "^2.8.3",
+    "@types/bun": "^1.1.5",
     "autoprefixer": "^10.4.19",
-    "daisyui": "^4.12.2",
+    "daisyui": "^4.12.8",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.2.2",
-    "vite": "^5.2.0"
+    "typescript": "^5.5.2",
+    "vite": "^5.3.1"
   }
 }

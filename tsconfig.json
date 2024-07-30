@@ -12,7 +12,7 @@
       "react-dom/*": ["./node_modules/preact/compat/*"],
       "@/*": [ "./src/*"]
     },
-    "types": ["@socketsupply/socket", "vite/client", "@types/bun"],
+    "types": ["@socketsupply/socket", "vite/client"],
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -30,6 +30,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src/"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

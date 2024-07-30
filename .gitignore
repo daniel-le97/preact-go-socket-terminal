@@ -1,5 +1,15 @@
-extensions
+
 src/next
+
+extensions/libsql
+extensions/simple-kv
+extensions/sqlite3
+extensions/term
+
+
+# backend
+backend-*
+
 
 # Logs
 logs
@@ -12,11 +22,19 @@ lerna-debug.log*
 
 build
 
+terminals
+components
+service-workers
+
 node_modules
 dist
 dist-ssr
 *.local
 
+*.so
+*.dylib
+*.dll
+*.o
 
 
 # Editor directories and files
