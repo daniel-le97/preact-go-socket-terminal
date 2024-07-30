@@ -35,6 +35,7 @@ dist-ssr
 *.dylib
 *.dll
 *.o
+*.a
 
 
 # Editor directories and files
