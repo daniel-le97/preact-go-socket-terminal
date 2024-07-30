@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"net"
 	"net/http"
-	// "os"
+	"os"
 	"os/exec"
 	"runtime"
 	"sync"
@@ -52,6 +52,18 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer conn.Close()
+
+	homeDir, err := os.UserHomeDir()
+    if err != nil {
+        fmt.Println("Error getting home directory:", err)
+        return
+    }
+
+    if err := os.Chdir(homeDir); err != nil {
+        fmt.Println("Error changing directory:", err)
+        return
+    }
+
 
 	cmd := exec.Command(getCommand())
 	ptmx, err := pty.Start(cmd)
